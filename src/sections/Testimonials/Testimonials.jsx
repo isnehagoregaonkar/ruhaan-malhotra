@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import { gallery6 } from "../../assets/assets";
 import Slider from "../../components/ui/Slider/Slider";
