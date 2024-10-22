@@ -21,7 +21,7 @@ const Top = () => {
       {/* Top navigation */}
       <div className="flex justify-between p-4 items-center bg-[#f1f5eb] z-50 relative">
         <div className="flex gap-2 items-center">
-          <img src={logo} alt="logo" className="w-16 h-16 md:w-20 md:h-20" />
+          <img src={logo} alt="logo" className="w-16 h-16 md:w-20" />
           <h1 className="text-green-900 text-2xl md:text-4xl font-semibold">
             Artisacs
           </h1>
@@ -47,7 +47,9 @@ const Top = () => {
             {isMobileMenuOpen ? <HiX size={30} /> : <HiMenuAlt3 size={30} />}
           </button>
         </div>
-        <PrimaryButton>Get in Touch</PrimaryButton>
+        <div className="hidden md:flex">
+          <PrimaryButton>Get in Touch</PrimaryButton>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -70,7 +72,7 @@ const Top = () => {
       )}
 
       {/* Main section */}
-      <div className="flex flex-col md:flex-row bg-green-900 rounded-3xl m-4 md:h-[700px] items-center">
+      <div className="flex flex-col md:flex-row bg-green-900 rounded-3xl m-4 md:h-[700px] items-center ">
         <div className="flex flex-col p-8 md:w-1/2 text-center md:text-left">
           <h1 className="text-white text-xl md:text-2xl">Waste to Wonder!</h1>
           <h2 className="text-white text-4xl md:text-7xl font-semibold mt-4 capitalize">
@@ -81,7 +83,7 @@ const Top = () => {
             <LeftIconButton />
           </div>
         </div>
-        <div className="p-8 md:w-1/2">
+        <div className="p-8 md:w-1/2 hidden md:block ">
           <AnimatedImages />
         </div>
       </div>

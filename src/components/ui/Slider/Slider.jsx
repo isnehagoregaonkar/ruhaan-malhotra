@@ -51,17 +51,25 @@ const Slider = () => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="min-w-full h-full flex items-start justify-center flex-col text-white p-16 text-justify font-thin gap-6"
-          >
-            <FaQuoteLeft className="text-4xl" />
-            <p className="text-2xl">{slide.text}</p>
+          <div className="min-w-full h-full flex items-start justify-center flex-col text-white p-4 md:p-16 text-justify font-thin gap-4 md:gap-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-8 h-8 md:w-10 md:h-10"
+            >
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p className="text-lg md:text-2xl">{slide.text}</p>
             <div className="flex items-center">
-              <img src={slide.photo} className="w-20 h-20 rounded-full" />
+              <img
+                src={slide.photo || "/api/placeholder/80/80"}
+                alt={slide.name}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover"
+              />
               <div className="ml-3">
-                <h3 className="text-2xl font-bold">{slide.name}</h3>
-                <p>{slide.profession}</p>
+                <h3 className="text-xl md:text-2xl font-bold">{slide.name}</h3>
+                <p className="text-sm md:text-base">{slide.profession}</p>
               </div>
             </div>
           </div>

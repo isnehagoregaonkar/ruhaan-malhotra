@@ -26,19 +26,27 @@ const Events = () => {
 
   return (
     <section
-      className="flex flex-col gap-8 p-8 bg-custom-bg bg-cover max-h-fit bg-center border rounded-3xl"
-      style={{ backgroundImage: 'url("/bg.png")' }}
+      className="flex flex-col gap-8 p-8 max-h-fit bg-center border rounded-3xl"
+      style={{
+        backgroundImage: `url('bg.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className="flex justify-center">
         <HeadingTitle subtitle="Meet Us At" title="Upcoming Events" />
       </div>
-      <div className="flex justify-around gap-4">
+      <div className="flex flex-col md:flex-row justify-around gap-6 md:gap-4 px-2 md:px-4">
         {events.map((event, index) => (
           <div
             key={index}
-            className={`w-1/3 h-fit p-6 m-4 bg-white rounded-lg shadow-md flex flex-col gap-2 ${
-              index === 1 ? "mt-10" : "mt-0"
-            } hover:bg-lime-50 hover:cursor-pointer`}
+            className={`w-full md:w-1/3 h-fit p-4 md:p-6 bg-white rounded-lg shadow-md 
+            flex flex-col gap-2 
+            ${index === 1 ? "md:mt-10" : "md:mt-0"}
+            transition-all duration-300 ease-in-out
+            hover:bg-lime-50 hover:cursor-pointer
+            hover:shadow-lg`}
           >
             <h3 className="text-xl font-bold text-green-800">{event.title}</h3>
             <p className="text-sm text-gray-500">{event.date}</p>

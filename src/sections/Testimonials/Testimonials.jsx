@@ -5,21 +5,28 @@ import Slider from "../../components/ui/Slider/Slider";
 
 const TestimonialSection = () => {
   return (
-    <section className="mx-auto py-10 px-16 text-center">
-      <div className="my-8">
+    <section className="mx-auto py-6 md:py-10 px-4 md:px-16 text-center">
+      <div className="my-4 md:my-8">
         <HeadingTitle
-          title={"What People Are Saying"}
-          subtitle={
-            "Feedback from our community on Artisacs' eco-friendly journey and impact"
-          }
+          title="What People Are Saying"
+          subtitle="Feedback from our community on Artisacs' eco-friendly journey and impact"
         />
       </div>
 
-      <div className="flex gap-8 p-8">
-        <div className="w-2/5 bg-fuchsia-50 h-fit rounded-2xl">
-          <img src={gallery6} className="h-fit rounded-2xl" />
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-8 p-4 md:p-8">
+        {/* Image Container */}
+        <div className="w-full lg:w-2/5">
+          <div className="bg-fuchsia-50 rounded-2xl overflow-hidden">
+            <img
+              src={gallery6}
+              alt="Gallery"
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          </div>
         </div>
-        <div className="w-3/5 bg-lime-500 h-fit rounded-2xl">
+
+        {/* Slider Container */}
+        <div className="w-full lg:w-3/5 bg-lime-500 rounded-2xl">
           <Slider />
         </div>
       </div>

@@ -2,9 +2,7 @@ import React from "react";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import GrayText from "../../components/ui/Text/GrayText";
 import PrimaryButton from "../../components/ui/Button/PrimaryButton";
-import FullScreenMap from "../../components/FullScreenMap";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
-import { contact, telecommuting } from "../../assets/assets";
 
 const ContactSection = () => {
   return (
