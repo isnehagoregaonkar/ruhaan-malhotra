@@ -53,7 +53,10 @@ const ContactSection = () => {
       );
   };
   return (
-    <section className="mx-auto py-6 md:py-10 px-4 md:px-8 lg:px-16 text-center bg-gray-50">
+    <section
+      className="mx-auto py-6 md:py-10 px-4 md:px-8 lg:px-16 text-center bg-gray-50"
+      id="contact"
+    >
       <HeadingTitle subtitle="Contact Information" title="Get in Touch" />
 
       {/* Contact Cards Container */}

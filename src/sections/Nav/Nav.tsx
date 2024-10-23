@@ -1,42 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
+import { logo } from "../../assets/assets";
+import PrimaryButton from "../../components/ui/Button/PrimaryButton";
+import { HiMenuAlt3, HiX } from "react-icons/hi"; // Hamburger and close icons
+import { Link } from "react-router-dom";
 
 const Nav = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
-    <div className="fixed top-0 left-0 right-0 flex justify-between p-4 items-center shadow-md bg-[#f1f5eb] z-50 mb-2">
-      <h1 className="text-green-900 font-bold text-4xl">Artisac</h1>
-      <div className="flex gap-5 text-green-900 text-[18px]">
-        <a className="hover:text-lime-500" href="/">
-          Home
-        </a>
-        <a className="hover:text-lime-500" href="/about">
-          About
-        </a>
-        <a className="hover:text-lime-500" href="/contact">
-          Contact
-        </a>
-      </div>
-      <div>
-        <button className=" bg-lime-500 py-4 px-6 rounded-full text-white flex items-center hover:bg-green-900">
-          Get in Touch
-          <span className="ml-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-5 h-5"
+    <>
+      {/* Top navigation */}
+      <nav className="flex justify-between p-4 items-center bg-[#f1f5eb] z-50 relative">
+        {/* Logo */}
+        <div className="flex gap-2 items-center">
+          <img src={logo} alt="logo" className="w-16 h-16 md:w-20" />
+          <h1 className="text-green-900 text-2xl md:text-4xl font-semibold">
+            Artisacs
+          </h1>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-3 md:gap-5 text-green-900 text-lg md:text-[18px]">
+          <Link to="/" className="hover:text-lime-500">
+            Home
+          </Link>
+          <Link to="/about" className="hover:text-lime-500">
+            About
+          </Link>
+          <Link to="/products" className="hover:text-lime-500">
+            Products
+          </Link>
+          <a href="#contact" className="hover:text-lime-500">
+            Contact
+          </a>
+        </div>
+
+        {/* Hamburger Icon for Mobile */}
+        <div className="md:hidden flex items-center">
+          <button onClick={toggleMobileMenu} className="text-green-900">
+            {isMobileMenuOpen ? <HiX size={30} /> : <HiMenuAlt3 size={30} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="absolute top-[70px] left-0 w-full bg-[#f1f5eb] flex flex-col items-center md:hidden text-green-900">
+            <Link
+              to="/"
+              className="py-2 hover:text-lime-500"
+              onClick={toggleMobileMenu}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="py-2 hover:text-lime-500"
+              onClick={toggleMobileMenu}
+            >
+              About
+            </Link>
+            <Link
+              to="/products"
+              className="py-2 hover:text-lime-500"
+              onClick={toggleMobileMenu}
+            >
+              Products
+            </Link>
+            <a
+              href="#contact"
+              className="py-2 hover:text-lime-500"
+              onClick={toggleMobileMenu}
+            >
+              Contact
+            </a>
+            <div className="m-4">
+              <PrimaryButton>Get in Touch</PrimaryButton>
+            </div>
+          </div>
+        )}
+
+        {/* "Get in Touch" button (Visible on Desktop only) */}
+        <div className="hidden md:flex">
+          <PrimaryButton>Get in Touch</PrimaryButton>
+        </div>
+      </nav>
+    </>
   );
 };
 

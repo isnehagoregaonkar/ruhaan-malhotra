@@ -9,6 +9,8 @@ export default {
         "move-up": "moveUp 5s infinite alternate ease-in-out",
         shake: "shake 0.5s ease-in-out infinite",
         "rotate-circle": "rotateCircle 10s linear infinite",
+        fadeIn: "fadeIn 1s ease-in-out forwards",
+        bounce: "bounce 0.5s infinite",
       },
       keyframes: {
         moveRight: {
@@ -31,6 +33,14 @@ export default {
         rotateCircle: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        bounce: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
         },
       },
     },

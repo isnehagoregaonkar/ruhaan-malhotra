@@ -1,4 +1,5 @@
 import self1 from "../assets/ruhaan/self1.jpg";
+import ruhaan from "../assets/ruhaan/ruhaan.webp";
 import asset from "../assets/assets.png";
 import logo from "../assets/logo.png";
 import gallery1 from "../assets/gallery1.jpeg";
@@ -36,4 +37,5 @@ export {
   article2,
   contact,
   telecommuting,
+  ruhaan,
 };

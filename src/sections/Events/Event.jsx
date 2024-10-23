@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 
 const Events = () => {
@@ -24,8 +24,20 @@ const Events = () => {
     },
   ];
 
+  // Reference for the container
+  const ref = useRef(null);
+  // Check if the component is in view
+  const isInView = useInView(ref, { once: true });
+
+  // Motion variants for animation
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section
+      ref={ref}
       className="flex flex-col gap-8 p-8 max-h-fit bg-center border rounded-3xl"
       style={{
         backgroundImage: `url('bg.png')`,
@@ -39,7 +51,7 @@ const Events = () => {
       </div>
       <div className="flex flex-col md:flex-row justify-around gap-6 md:gap-4 px-2 md:px-4">
         {events.map((event, index) => (
-          <div
+          <motion.div
             key={index}
             className={`w-full md:w-1/3 h-fit p-4 md:p-6 bg-white rounded-lg shadow-md 
             flex flex-col gap-2 
@@ -47,11 +59,15 @@ const Events = () => {
             transition-all duration-300 ease-in-out
             hover:bg-lime-50 hover:cursor-pointer
             hover:shadow-lg`}
+            variants={variants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <h3 className="text-xl font-bold text-green-800">{event.title}</h3>
             <p className="text-sm text-gray-500">{event.date}</p>
             <p className="text-sm text-green-800">{event.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

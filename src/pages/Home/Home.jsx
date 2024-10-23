@@ -8,10 +8,12 @@ import Articles from "../../sections/Articles/Articles";
 import TestimonialSection from "../../sections/Testimonials/Testimonials";
 import ContactSection from "../../sections/Contact/Contact";
 import Footer from "../../sections/Footer.jsx/Footer";
+import Nav from "../../sections/Nav/Nav";
 
 const Home = () => {
   return (
     <div className="bg-[#f1f5eb]">
+      <Nav />
       <Top />
       <AboutArtisac />
       <Events />

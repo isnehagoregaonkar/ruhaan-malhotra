@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { asset, gallery2, gallery3, gallery6 } from "../../assets/assets";
+import { gallery2, gallery3 } from "../../assets/assets";
 import SecondaryButton from "../../components/ui/Button/SecondaryButton";
 import { IoIosCall } from "react-icons/io";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
@@ -17,6 +17,7 @@ const AboutArtisac = () => {
       return () => clearInterval(timer); // Clear interval on component unmount
     }
   }, [count]);
+
   return (
     <section className="px-4 py-8 md:p-8">
       <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 max-w-7xl mx-auto">
@@ -29,12 +30,12 @@ const AboutArtisac = () => {
               <div className="absolute top-3 left-4 rounded-2xl border border-lime-500 w-11/12 h-full z-[1]"></div>
               <img
                 src={gallery3}
-                className="rounded-2xl relative w-11/12"
+                className="rounded-2xl relative w-11/12 animate-fadeIn"
                 alt="Bordered Image"
               />
             </div>
             {/* Stats Box 1 */}
-            <div className="bg-lime-500 p-4 rounded-2xl">
+            <div className="bg-lime-500 p-4 rounded-2xl animate-fadeIn">
               <div className="flex gap-4 items-center justify-center">
                 <p className="text-4xl md:text-6xl font-bold text-white transition duration-500 ease-out">
                   Artisac
@@ -46,10 +47,10 @@ const AboutArtisac = () => {
           {/* Second Column */}
           <div className="w-full md:w-1/2 flex flex-col gap-6">
             {/* Stats Box 2 */}
-            <div className="bg-lime-500 p-4 rounded-2xl hidden md:block">
+            <div className="bg-lime-500 p-4 rounded-2xl hidden md:block animate-fadeIn">
               <div className="flex gap-4 items-center justify-center">
                 <p className="text-4xl md:text-6xl font-bold text-white transition duration-500 ease-out">
-                  12
+                  {count} {/* Dynamically showing the counter */}
                 </p>
                 <div>
                   <span className="text-xl md:text-2xl text-white">Year</span>
@@ -61,7 +62,11 @@ const AboutArtisac = () => {
               </div>
             </div>
             {/* Second Image */}
-            <img src={gallery2} className="rounded-2xl w-full" alt="Gallery" />
+            <img
+              src={gallery2}
+              className="rounded-2xl w-full animate-fadeIn"
+              alt="Gallery"
+            />
           </div>
         </div>
 
@@ -89,10 +94,10 @@ const AboutArtisac = () => {
           </GrayText>
 
           {/* Contact Section */}
-          <div className="flex gap-2 mt-4 flex-wrap justify-between md:gap-8 md:justify-start  w-full">
+          <div className="flex gap-2 mt-4 flex-wrap justify-between md:gap-8 md:justify-start w-full">
             <SecondaryButton>Read More</SecondaryButton>
             <div className="flex gap-2">
-              <div className="bg-lime-500 rounded-full p-4 h-12 w-12 flex items-center justify-center hover:animate-shake">
+              <div className="bg-lime-500 rounded-full p-4 h-12 w-12 flex items-center justify-center hover:animate-bounce">
                 <IoIosCall className="text-white h-6 w-6" />
               </div>
               <div>

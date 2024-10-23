@@ -1,6 +1,6 @@
 import React from "react";
 
-const PrimaryButton = ({ children, icon }) => {
+const PrimaryButton = ({ children }) => {
   return (
     <div>
       <button className="w-full justify-center bg-lime-500 py-4 px-6 rounded-full text-white flex items-center hover:bg-green-90">
