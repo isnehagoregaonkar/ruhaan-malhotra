@@ -41,7 +41,7 @@ const ContactSection = () => {
             </svg>
           }
           title="Email"
-          content="contact@example.com"
+          content="artisac@gmail.com"
         />
 
         <ContactCard
@@ -56,7 +56,7 @@ const ContactSection = () => {
             </svg>
           }
           title="Contact Number"
-          content="+123 456 7890"
+          content="+971 55 876 4168"
         />
 
         <ContactCard
@@ -75,7 +75,7 @@ const ContactSection = () => {
             </svg>
           }
           title="Address"
-          content="123 Street, City, Country"
+          content="Dubai, UAE"
         />
       </div>
 
