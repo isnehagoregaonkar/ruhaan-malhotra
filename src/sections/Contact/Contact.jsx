@@ -43,7 +43,6 @@ const ContactSection = () => {
           title="Email"
           content="artisac@gmail.com"
         />
-
         <ContactCard
           icon={
             <svg
