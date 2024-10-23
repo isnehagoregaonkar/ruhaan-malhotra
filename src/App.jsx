@@ -7,8 +7,8 @@ function App() {
     <div className="bg-[#f1f5eb]">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/ruhaan-malhotra/" element={<Home />} />
+          <Route path="/ruhaan-malhotra/about" element={<AboutPage />} />
           {/* <Route path="/contact" element={<ContactPage />} /> */}
           {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>

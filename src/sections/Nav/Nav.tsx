@@ -24,13 +24,13 @@ const Nav = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-3 md:gap-5 text-green-900 text-lg md:text-[18px]">
-          <Link to="/" className="hover:text-lime-500">
+          <Link to="/ruhaan-malhotra/" className="hover:text-lime-500">
             Home
           </Link>
-          <Link to="/about" className="hover:text-lime-500">
+          <Link to="/ruhaan-malhotra/about" className="hover:text-lime-500">
             About
           </Link>
-          <Link to="/products" className="hover:text-lime-500">
+          <Link to="/ruhaan-malhotra/products" className="hover:text-lime-500">
             Products
           </Link>
           <a href="#contact" className="hover:text-lime-500">
