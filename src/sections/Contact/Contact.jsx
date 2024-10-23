@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const HeadingTitle = ({ title, subtitle }) => (
   <div className="space-y-2 mb-6">
@@ -15,13 +16,42 @@ const ContactCard = ({ icon: Icon, title, content }) => (
   </div>
 );
 
-const PrimaryButton = ({ children }) => (
-  <button className="w-full md:w-auto px-6 py-3 bg-lime-500 text-white rounded-xl hover:bg-lime-600 transition-colors duration-200">
-    {children}
-  </button>
-);
+const PrimaryButton = ({ children, sendEmail }) => {
+  return (
+    <button
+      onClick={sendEmail}
+      type="submit"
+      className="w-full md:w-auto px-6 py-3 bg-lime-500 text-white rounded-xl hover:bg-lime-600 transition-colors duration-200"
+    >
+      {children}
+    </button>
+  );
+};
 
 const ContactSection = () => {
+  const [emailData, setEmailData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // EmailJS service - replace with your own values
+    emailjs
+      .send("your_service_id", "your_template_id", emailData, "your_user_id")
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          alert("Email sent successfully!");
+        },
+        (err) => {
+          console.error("FAILED...", err);
+          alert("Failed to send email. Please try again later.");
+        }
+      );
+  };
   return (
     <section className="mx-auto py-6 md:py-10 px-4 md:px-8 lg:px-16 text-center bg-gray-50">
       <HeadingTitle subtitle="Contact Information" title="Get in Touch" />
@@ -106,7 +136,7 @@ const ContactSection = () => {
               aria-label="Message"
               className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-lime-500"
             />
-            <PrimaryButton>Send Message</PrimaryButton>
+            <PrimaryButton sendEmail={sendEmail}>Send Message</PrimaryButton>
           </form>
         </div>
       </div>
