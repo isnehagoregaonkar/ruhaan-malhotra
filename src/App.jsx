@@ -3,6 +3,8 @@ import AboutPage from "./pages/About/AboutPage";
 import Home from "./pages/Home/Home";
 import ProductPage from "./pages/Product/ProductPage";
 import GalleryPage from "./pages/Gallery/GalleryPage";
+import SuccessPage from "./pages/Success/SuccessPage";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
           <Route path="/ruhaan-malhotra/about" element={<AboutPage />} />
           <Route path="/ruhaan-malhotra/products" element={<ProductPage />} />
           <Route path="/ruhaan-malhotra/gallery" element={<GalleryPage />} />
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
+          <Route path="/ruhaan-malhotra/success" element={<SuccessPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

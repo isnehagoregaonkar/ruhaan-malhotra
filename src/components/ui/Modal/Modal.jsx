@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -9,12 +10,12 @@ const Modal = ({ isOpen, onClose }) => {
     address: "",
     quantity: "",
   });
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    // Handle form submission
     onClose();
+    navigate("/ruhaan-malhotra/success");
   };
 
   if (!isOpen) return null;

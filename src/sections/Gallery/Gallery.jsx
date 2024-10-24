@@ -4,8 +4,6 @@ import Masonry from "react-masonry-css";
 import { X } from "lucide-react";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import {
-  gallery1,
-  gallery10,
   gallery11,
   gallery2,
   gallery3,
