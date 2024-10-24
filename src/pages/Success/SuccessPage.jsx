@@ -3,7 +3,6 @@ import Nav from "../../sections/Nav/Nav";
 import HeaderBanner from "../../components/ui/Header/HeaderBanner";
 import Footer from "../../sections/Footer.jsx/Footer";
 import { ContactCard } from "../../components/ui/Card/ContactCard";
-import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 
 const SuccessPage = () => {
   return (
