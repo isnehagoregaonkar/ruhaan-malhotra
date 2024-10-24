@@ -17,7 +17,9 @@ const InstagramEmbed = () => {
   return (
     <ScrollAnimation>
       <section className="flex flex-col items-center justify-center py-10 ">
-        <HeadingTitle title="Our Social Media Feed" />
+        <div className="text-center">
+          <HeadingTitle title="Our Social Media Feed" />
+        </div>
         <p className="mb-10 text-center max-w-lg m-2 text-green-900">
           Stay connected with us across platforms! Check out our latest updates
           on Instagram and LinkedIn.

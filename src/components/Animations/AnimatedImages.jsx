@@ -1,5 +1,5 @@
 import React from "react";
-import { asset, logo } from "../../assets/assets";
+import { asset, logo, product1, product3 } from "../../assets/assets";
 
 const AnimatedImages = () => {
   return (
@@ -8,14 +8,9 @@ const AnimatedImages = () => {
         className="absolute w-full h-[650px] object-cover opacity-80 animate-move-right bg-lime-500 rounded-full"
         style={{ zIndex: 1 }}
       />
-      {/* <img
-        src={asset}
-        alt="Image 2"
-        className="absolute min-w-full h-[450px] object-cover rounded-lg opacity-80 animate-move-left"
-        style={{ zIndex: 2 }}
-      /> */}
+
       <img
-        src={logo}
+        src={product3}
         alt="Image 3"
         className="absolute min-w-full h-fit object-cover rounded-lg animate-move-up"
         style={{ zIndex: 3 }}
