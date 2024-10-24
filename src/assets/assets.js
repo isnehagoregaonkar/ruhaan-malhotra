@@ -17,6 +17,11 @@ import article1 from "../assets/article1.jpg";
 import article2 from "../assets/article2.jpg";
 import contact from "../assets/contact.webp";
 import telecommuting from "../assets/telecommuting.png";
+import product1 from "../assets/products/1.png";
+import product2 from "../assets/products/2.png";
+import product3 from "../assets/products/3.png";
+import product4 from "../assets/products/4.png";
+import product5 from "../assets/products/5.png";
 
 export {
   self1,
@@ -38,4 +43,9 @@ export {
   contact,
   telecommuting,
   ruhaan,
+  product1,
+  product2,
+  product3,
+  product4,
+  product5,
 };

@@ -4,16 +4,18 @@ import AboutArtisac from "../../sections/About/AboutArtisac";
 import Nav from "../../sections/Nav/Nav";
 import ContactSection from "../../sections/Contact/Contact";
 import Footer from "../../sections/Footer.jsx/Footer";
-import { gallery11, gallery6, ruhaan } from "../../assets/assets";
-import HeadingTitle from "../../components/ui/Title/HeadingTitle";
-import GrayText from "../../components/ui/Text/GrayText";
 import FullWidthVideo from "../../components/ui/FullWidthVideo";
+import ScrollAnimation from "../../components/Animations/AnimationWrapper";
 
 const AboutPage = () => {
   return (
     <div>
       <Nav />
-      <HeaderBanner />
+      <HeaderBanner
+        title="Welcome to Artisac"
+        subtitle=" Discover our eco-friendly designs and innovative solutions to
+          sustainable living."
+      />
       <div className="py-10">
         {/* Main Content */}
         <main className="mx-auto p-8">
@@ -60,7 +62,9 @@ const AboutPage = () => {
                 />
               </div>
             </div> */}
-            <FullWidthVideo />
+            <ScrollAnimation>
+              <FullWidthVideo />
+            </ScrollAnimation>
           </section>
 
           <AboutArtisac />

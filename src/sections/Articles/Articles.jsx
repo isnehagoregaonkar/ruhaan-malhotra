@@ -1,6 +1,7 @@
 import React from "react";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import { article1, article2 } from "../../assets/assets";
+import ScrollAnimation from "../../components/Animations/AnimationWrapper";
 
 const Articles = () => {
   const articles = [
@@ -24,43 +25,45 @@ const Articles = () => {
   ];
   return (
     <section className="px-4 md:px-8 lg:px-16 py-6 text-center max-h-fit bg-white">
-      <div className="my-8">
-        <HeadingTitle
-          subtitle={"They wrote about us"}
-          title={"A Tapestry of Experiences"}
-        />
-      </div>
+      <ScrollAnimation animationName="moveLeft">
+        <div className="my-8">
+          <HeadingTitle
+            subtitle={"They wrote about us"}
+            title={"A Tapestry of Experiences"}
+          />
+        </div>
 
-      <div className="flex flex-col md:flex-row gap-8 justify-around">
-        {articles.map((article, index) => (
-          <div
-            key={index}
-            className="w-full md:w-1/2 lg:w-1/3 group"
-            style={{
-              perspective: "1000px",
-            }}
-          >
-            <a href={article.link} target="_blank" className="block">
-              <div className="relative">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="h-[350px] w-full object-cover rounded-lg transform transition-transform duration-500 ease-out group-hover:rotate-x-12 group-hover:rotate-y-12 group-hover:scale-105 group-hover:shadow-2xl"
-                />
-                <div className="bg-white p-4 rounded-lg shadow-lg text-left relative -mt-10 mx-4 md:ml-10">
-                  <h1 className="text-lg md:text-xl font-semibold text-green-900 line-clamp-2">
-                    {article.title}
-                  </h1>
-                  <p className="text-gray-600 text-xs mt-2">{article.date}</p>
-                  <p className="text-gray-600 text-sm mt-2 line-clamp-2">
-                    {article.content}
-                  </p>
+        <div className="flex flex-col md:flex-row gap-8 justify-around">
+          {articles.map((article, index) => (
+            <div
+              key={index}
+              className="w-full md:w-1/2 lg:w-1/3 group"
+              style={{
+                perspective: "1000px",
+              }}
+            >
+              <a href={article.link} target="_blank" className="block">
+                <div className="relative">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="h-[350px] w-full object-cover rounded-lg transform transition-transform duration-500 ease-out group-hover:rotate-x-12 group-hover:rotate-y-12 group-hover:scale-105 group-hover:shadow-2xl"
+                  />
+                  <div className="bg-white p-4 rounded-lg shadow-lg text-left relative -mt-10 mx-4 md:ml-10">
+                    <h1 className="text-lg md:text-xl font-semibold text-green-900 line-clamp-2">
+                      {article.title}
+                    </h1>
+                    <p className="text-gray-600 text-xs mt-2">{article.date}</p>
+                    <p className="text-gray-600 text-sm mt-2 line-clamp-2">
+                      {article.content}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </div>
-        ))}
-      </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </ScrollAnimation>
     </section>
   );
 };

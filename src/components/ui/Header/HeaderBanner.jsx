@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeaderBanner = () => {
+const HeaderBanner = ({ title, subtitle }) => {
   return (
     <header
       className="relative w-full h-96 bg-cover bg-center"
@@ -11,13 +11,8 @@ const HeaderBanner = () => {
 
       {/* Text Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Welcome to Artisacs!
-        </h1>
-        <p className="text-lg md:text-2xl max-w-2xl">
-          Discover our eco-friendly designs and innovative solutions to
-          sustainable living.
-        </p>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>
+        <p className="text-lg md:text-2xl max-w-2xl">{subtitle}</p>
       </div>
     </header>
   );

@@ -24,18 +24,37 @@ const Nav = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-3 md:gap-5 text-green-900 text-lg md:text-[18px]">
-          <Link to="/ruhaan-malhotra/" className="hover:text-lime-500">
+          <Link
+            to="/ruhaan-malhotra/"
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
+          >
             Home
           </Link>
-          <Link to="/ruhaan-malhotra/about" className="hover:text-lime-500">
+          <Link
+            to="/ruhaan-malhotra/about"
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
+          >
             About
           </Link>
-          <Link to="/ruhaan-malhotra/products" className="hover:text-lime-500">
+          <Link
+            to="/ruhaan-malhotra/gallery"
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
+          >
+            Gallery
+          </Link>
+          <Link
+            to="/ruhaan-malhotra/products"
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
+          >
             Products
           </Link>
-          <a href="#contact" className="hover:text-lime-500">
+
+          {/* <a
+            href="#contact"
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
+          >
             Contact
-          </a>
+          </a> */}
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -49,42 +68,53 @@ const Nav = () => {
         {isMobileMenuOpen && (
           <div className="absolute top-[70px] left-0 w-full bg-[#f1f5eb] flex flex-col items-center md:hidden text-green-900">
             <Link
-              to="/"
+              to="/ruhaan-malhotra/"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               Home
             </Link>
             <Link
-              to="/about"
+              to="/ruhaan-malhotra/about"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               About
             </Link>
             <Link
-              to="/products"
+              to="/ruhaan-malhotra/gallery"
+              className="py-2 hover:text-lime-500"
+              onClick={toggleMobileMenu}
+            >
+              Gallery
+            </Link>
+            <Link
+              to="/ruhaan-malhotra/products"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               Products
             </Link>
-            <a
+            {/* <a
               href="#contact"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               Contact
-            </a>
+            </a> */}
             <div className="m-4">
-              <PrimaryButton>Get in Touch</PrimaryButton>
+              <a href="#contact">
+                <PrimaryButton>Get in Touch</PrimaryButton>
+              </a>
             </div>
           </div>
         )}
 
         {/* "Get in Touch" button (Visible on Desktop only) */}
         <div className="hidden md:flex">
-          <PrimaryButton>Get in Touch</PrimaryButton>
+          <a href="#contact">
+            <PrimaryButton>Get in Touch</PrimaryButton>
+          </a>
         </div>
       </nav>
     </>

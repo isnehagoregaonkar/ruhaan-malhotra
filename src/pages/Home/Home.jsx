@@ -17,7 +17,6 @@ const Home = () => {
       <Top />
       <AboutArtisac />
       <Events />
-      <ImageGallery />
       <InstagramEmbed />
       <Articles />
       <TestimonialSection />

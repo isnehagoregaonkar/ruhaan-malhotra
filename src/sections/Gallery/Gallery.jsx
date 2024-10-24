@@ -16,6 +16,7 @@ import {
   gallery8,
   gallery9,
 } from "../../assets/assets";
+import ContactSection from "../Contact/Contact";
 
 const ImageGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -100,6 +101,7 @@ const ImageGallery = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <ContactSection />
     </section>
   );
 };
