@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ScrollAnimation from "../../components/Animations/AnimationWrapper";
+import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 
 const InstagramEmbed = () => {
   useEffect(() => {
@@ -16,15 +17,13 @@ const InstagramEmbed = () => {
   return (
     <ScrollAnimation>
       <section className="flex flex-col items-center justify-center py-10 ">
-        <h2 className="text-3xl font-bold text-green-900 mb-6 text-center">
-          Our Social Media Feed
-        </h2>
-        <p className="text-gray-700 mb-10 text-center max-w-lg px-4">
+        <HeadingTitle title="Our Social Media Feed" />
+        <p className="mb-10 text-center max-w-lg m-2 text-green-900">
           Stay connected with us across platforms! Check out our latest updates
           on Instagram and LinkedIn.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-8 p-4 w-full max-w-6xl">
+        <div className="flex flex-col md:flex-row gap-8 px-4 w-full max-w-6xl">
           {/* First Instagram Post with its button */}
           <div className="flex flex-col w-full md:w-1/3">
             <div

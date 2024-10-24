@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import ScrollAnimation from "../../components/Animations/AnimationWrapper";
-
-const HeadingTitle = ({ title, subtitle }) => (
-  <div className="space-y-2 mb-6">
-    <h3 className="text-gray-600 text-lg">{subtitle}</h3>
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{title}</h2>
-  </div>
-);
+import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 
 const ContactCard = ({ icon: Icon, title, content }) => (
   <div className="flex flex-col items-center mb-4 gap-2 justify-around border border-lime-500 rounded-2xl p-4 bg-white w-full md:w-1/3">

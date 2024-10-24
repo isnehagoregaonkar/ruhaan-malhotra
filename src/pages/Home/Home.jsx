@@ -2,7 +2,6 @@ import React from "react";
 import Top from "../../sections/Top/Top";
 import AboutArtisac from "../../sections/About/AboutArtisac";
 import Events from "../../sections/Events/Event";
-import ImageGallery from "../../sections/Gallery/Gallery";
 import InstagramEmbed from "../../sections/Social/InstagramEmbed";
 import Articles from "../../sections/Articles/Articles";
 import TestimonialSection from "../../sections/Testimonials/Testimonials";
