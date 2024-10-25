@@ -5,6 +5,7 @@ import { IoIosCall } from "react-icons/io";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import GrayText from "../../components/ui/Text/GrayText";
 import ScrollAnimation from "../../components/Animations/AnimationWrapper";
+import TransparentButton from "../../components/ui/Button/TransparentButton";
 
 const AboutArtisac = () => {
   const [count, setCount] = useState(0);
@@ -20,9 +21,41 @@ const AboutArtisac = () => {
   }, [count]);
 
   return (
-    <section className="px-4 py-8 md:p-8">
+    <section className="my-8">
       <ScrollAnimation>
-        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 max-w-7xl mx-auto">
+        <div className="flex flex-col-reverse lg:flex-row lg:items-center gap-8 lg:gap-16 w-full bg-green-900 pt-6">
+          <div className="w-full lg:w-1/3 flex flex-col gap-6 pt-8 px-8 ">
+            <p className="text-white ">
+              Ruhaan Malhotra supports underprivileged children through Artisacs
+              by dedicating his summers to teaching pop art and self-expression
+              at the Udyam Trust NGO in New Delhi, India. Through this
+              collaboration, all proceeds from Artisacs' eco-friendly bags go
+              directly to the NGO, helping fund education and creative
+              development initiatives for these children.
+            </p>
+            <a
+              href="https://udyamtrust.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="pb-6"
+            >
+              <TransparentButton>Visit Udyam Trust</TransparentButton>
+            </a>
+          </div>
+          <div className="w-full lg:w-1/3 flex flex-col gap-6 mt-4 items-center">
+            <img
+              src={gallery2}
+              className="rounded-t-full  w-11/12 animate-fadeIn"
+              alt="Bordered Image"
+            />
+          </div>
+          <div className="w-full lg:w-1/3 flex flex-col gap-6 text-white font-serif">
+            <h1 className="text-4xl md:text-6xl font-bold animate-fadeIn text-center lg:text-left ">
+              Helping children Achieve their dreams
+            </h1>
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 max-w-7xl mx-auto px-4 py-8 md:p-8">
           {/* Left Column - Images and Stats */}
           <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-4">
             {/* First Column */}
