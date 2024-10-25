@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { gallery2, gallery3 } from "../../assets/assets";
+import {
+  gallery2,
+  gallery3,
+  gallery4,
+  product1,
+  product4,
+  product5,
+} from "../../assets/assets";
 import SecondaryButton from "../../components/ui/Button/SecondaryButton";
 import { IoIosCall } from "react-icons/io";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
@@ -101,7 +108,7 @@ const AboutArtisac = () => {
               <div className="relative inline-block">
                 <div className="absolute rounded-2xl inset-4 border border-lime-500 w-10/12 z-[1] "></div>
                 <img
-                  src={gallery2}
+                  src={product4}
                   className="rounded-2xl relative w-11/12 animate-fadeIn"
                   alt="Bordered Image"
                 />
