@@ -40,7 +40,7 @@ const AboutArtisac = () => {
               <div className="bg-lime-500 p-4 rounded-2xl animate-fadeIn">
                 <div className="flex gap-4 items-center justify-center">
                   <p className="text-4xl md:text-6xl font-bold text-white">
-                    Artisac
+                    Artisacs
                   </p>
                 </div>
               </div>
