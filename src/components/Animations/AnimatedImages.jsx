@@ -1,5 +1,5 @@
 import React from "react";
-import { asset, logo, product1, product3 } from "../../assets/assets";
+import { product3 } from "../../assets/assets";
 
 const AnimatedImages = () => {
   return (

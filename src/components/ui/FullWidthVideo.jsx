@@ -1,8 +1,9 @@
 import React from "react";
+import "./FullWidthVideo.css";
 
 const FullWidthVideo = () => {
   return (
-    <div className="relative w-full overflow-hidden pb-[56.25%]">
+    <div className="relative w-full h-full overflow-hidden pb-[56.25%]">
       <iframe
         className="absolute top-0 left-0 w-full h-full"
         src="https://www.youtube.com/embed/6p-iMxh1NZk"

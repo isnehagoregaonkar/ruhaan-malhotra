@@ -4,7 +4,11 @@ import Masonry from "react-masonry-css";
 import { X } from "lucide-react";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import {
+  article1,
   gallery11,
+  gallery12,
+  gallery13,
+  gallery14,
   gallery2,
   gallery3,
   gallery4,
@@ -13,6 +17,12 @@ import {
   gallery7,
   gallery8,
   gallery9,
+  product1,
+  product2,
+  product3,
+  product4,
+  product5,
+  self1,
 } from "../../assets/assets";
 import ContactSection from "../Contact/Contact";
 
@@ -29,6 +39,16 @@ const ImageGallery = () => {
     { id: 8, src: gallery8, alt: "Gallery Image 8" },
     { id: 9, src: gallery9, alt: "Gallery Image 9" },
     { id: 11, src: gallery11, alt: "Gallery Image 11" },
+    { id: 12, src: gallery12, alt: "Gallery Image 12" },
+    { id: 5, src: gallery13, alt: "Gallery Image 13" },
+    { id: 1, src: gallery14, alt: "Gallery Image 14" },
+    { id: 10, src: self1, alt: "Gallery Image 10" },
+    { id: 13, src: article1, alt: "Gallery Image 1" },
+    { id: 14, src: product5, alt: "Gallery Image 5" },
+    { id: 15, src: product4, alt: "Gallery Image 5" },
+    { id: 16, src: product3, alt: "Gallery Image 5" },
+    { id: 17, src: product2, alt: "Gallery Image 5" },
+    { id: 18, src: product1, alt: "Gallery Image 5" },
   ];
 
   const breakpointColumnsObj = {

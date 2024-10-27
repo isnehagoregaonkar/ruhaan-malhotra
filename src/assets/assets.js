@@ -13,6 +13,9 @@ import gallery8 from "../assets/gallery8.jpeg";
 import gallery9 from "../assets/gallery9.jpeg";
 import gallery10 from "../assets/gallery10.jpeg";
 import gallery11 from "../assets/gallery11.jpeg";
+import gallery12 from "../assets/gallery12.jpeg";
+import gallery13 from "../assets/gallery13.jpeg";
+import gallery14 from "../assets/gallery14.jpeg";
 import article1 from "../assets/article1.jpg";
 import article2 from "../assets/article2.jpg";
 import contact from "../assets/contact.webp";
@@ -38,6 +41,9 @@ export {
   gallery9,
   gallery10,
   gallery11,
+  gallery12,
+  gallery13,
+  gallery14,
   article1,
   article2,
   contact,

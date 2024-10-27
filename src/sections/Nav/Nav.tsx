@@ -3,6 +3,8 @@ import { logo } from "../../assets/assets";
 import PrimaryButton from "../../components/ui/Button/PrimaryButton";
 import { HiMenuAlt3, HiX } from "react-icons/hi"; // Hamburger and close icons
 import { Link } from "react-router-dom";
+import TransparentButton from "../../components/ui/Button/TransparentButton";
+import SecondaryButton from "../../components/ui/Button/SecondaryButton";
 
 const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -111,7 +113,13 @@ const Nav = () => {
         )}
 
         {/* "Get in Touch" button (Visible on Desktop only) */}
-        <div className="hidden md:flex">
+        <div className="hidden md:flex gap-4">
+          <Link
+            to="/ruhaan-malhotra/ruhaan"
+            className="flex items-center text-lime-500 underline underline-offset-4 hover:text-lime-900"
+          >
+            Other Initiatives
+          </Link>
           <a href="#contact">
             <PrimaryButton>Get in Touch</PrimaryButton>
           </a>

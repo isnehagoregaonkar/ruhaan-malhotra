@@ -40,7 +40,7 @@ const Top = () => {
               <PiHandHeartThin className="text-white text-xl md:text-2xl transition-all duration-300 hover:animate-bounce" />
             </div>
             <h3 className="font-semibold text-lg md:text-xl text-green-900 mt-2 transition-colors duration-300 ease-in-out">
-              Artisac Initiative
+              Artisacs Initiatives
             </h3>
             <p className="text-sm text-gray-500 mt-4 transition-all duration-300 ease-in-out">
               The initiative is dedicated to supporting Dubai’s drive for no

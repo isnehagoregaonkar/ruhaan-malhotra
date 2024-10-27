@@ -26,13 +26,10 @@ const Articles = () => {
   return (
     <section className="px-4 md:px-8 lg:px-16 py-6 text-center max-h-fit bg-white">
       <ScrollAnimation animationName="moveLeft">
-        <div className="my-8">
-          <HeadingTitle
-            subtitle={"They wrote about us"}
-            title={"A Tapestry of Experiences"}
-          />
-        </div>
-
+        <HeadingTitle
+          subtitle={"They wrote about us"}
+          title={"A Tapestry of Experiences"}
+        />
         <div className="flex flex-col md:flex-row gap-8 justify-around">
           {articles.map((article, index) => (
             <div

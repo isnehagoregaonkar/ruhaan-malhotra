@@ -6,6 +6,7 @@ import ContactSection from "../../sections/Contact/Contact";
 import Footer from "../../sections/Footer.jsx/Footer";
 import FullWidthVideo from "../../components/ui/FullWidthVideo";
 import ScrollAnimation from "../../components/Animations/AnimationWrapper";
+import ArtisacsInitiative from "../../sections/About/ArticsacInitiative";
 
 const AboutPage = () => {
   return (
@@ -20,11 +21,12 @@ const AboutPage = () => {
         {/* Main Content */}
         <main>
           {/* Story Section */}
-          <section className="p-8">
-            <ScrollAnimation>
+          {/* <section className="p-8"> */}
+          {/* <ScrollAnimation>
               <FullWidthVideo />
-            </ScrollAnimation>
-          </section>
+            </ScrollAnimation> */}
+          {/* </section> */}
+          <ArtisacsInitiative />
           <AboutArtisac />
         </main>
       </div>

@@ -19,10 +19,10 @@ const AboutArtisac = () => {
 
   // Increment counter to 12
   useEffect(() => {
-    if (count < 12) {
+    if (count < 500) {
       const timer = setInterval(() => {
         setCount((prevCount) => prevCount + 1);
-      }, 100); // Adjust the duration as needed
+      }, 10); // Adjust the duration as needed
       return () => clearInterval(timer); // Clear interval on component unmount
     }
   }, [count]);
@@ -79,9 +79,14 @@ const AboutArtisac = () => {
               {/* Stats Box 1 */}
               <div className="bg-lime-500 p-4 rounded-2xl animate-fadeIn">
                 <div className="flex gap-4 items-center justify-center">
-                  <p className="text-4xl md:text-6xl font-bold text-white">
-                    Artisacs
+                  <p className="text-4xl md:text-6xl font-bold text-white transition duration-500 ease-out">
+                    {count}+
                   </p>
+                  <div>
+                    <span className="text-xl md:text-2xl text-white">Bags</span>
+                    <br />
+                    <span className="text-xl md:text-2xl text-white">Sold</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -91,16 +96,9 @@ const AboutArtisac = () => {
               {/* Stats Box 2 */}
               <div className="bg-lime-500 p-4 rounded-2xl hidden md:block animate-fadeIn">
                 <div className="flex gap-4 items-center justify-center">
-                  <p className="text-4xl md:text-6xl font-bold text-white transition duration-500 ease-out">
-                    {count} {/* Dynamically showing the counter */}
+                  <p className="text-4xl md:text-6xl font-bold text-white">
+                    Artisacs
                   </p>
-                  <div>
-                    <span className="text-xl md:text-2xl text-white">Year</span>
-                    <br />
-                    <span className="text-xl md:text-2xl text-white">
-                      Student
-                    </span>
-                  </div>
                 </div>
               </div>
               {/* Second Image */}
@@ -117,7 +115,7 @@ const AboutArtisac = () => {
           </div>
 
           {/* Right Column - Content */}
-          <div className="w-full lg:w-1/2 flex flex-col gap-6">
+          <div className="w-full lg:w-1/2 flex flex-col">
             <HeadingTitle
               subtitle="Why Choose Us"
               title="We are Aligned with Dubai's Year of Sustainability"

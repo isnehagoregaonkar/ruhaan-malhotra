@@ -102,7 +102,7 @@ const ProductPage = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-52 object-contain mb-4 rounded-lg hover:border hover:border-green-900 bg-gray-50"
+                  className="w-full h-52 object-contain mb-4 rounded-lg hover:border hover:border-green-900 bg-gray-50 hover:scale-105 transition duration-500 ease-in-out"
                 />
                 {product.bestseller && (
                   <span className="absolute text-sm bg-yellow-300 rounded-2xl px-2 py-1 top-2">
@@ -114,7 +114,7 @@ const ProductPage = () => {
                 {product.name}
               </h2>
               <p className="text-sm text-green-900">
-                Price: AED {product.price}
+                {/* Price: AED {product.price} */}
               </p>
 
               <button

@@ -8,12 +8,10 @@ const TestimonialSection = () => {
   return (
     <section className="mx-auto py-6 md:py-10 px-4 md:px-16 text-center">
       <ScrollAnimation animateIn="fadeIn">
-        <div className="my-4 md:my-8">
-          <HeadingTitle
-            title="What People Are Saying"
-            subtitle="Feedback from our community on Artisacs' eco-friendly journey and impact"
-          />
-        </div>
+        <HeadingTitle
+          title="What People Are Saying"
+          subtitle="Feedback from our community on Artisacs' eco-friendly journey and impact"
+        />
 
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8 p-4 md:p-8">
           {/* Image Container */}
