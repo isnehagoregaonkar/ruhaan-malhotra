@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { logo } from "../../assets/assets";
+import { logo, new_logo } from "../../assets/assets";
 import PrimaryButton from "../../components/ui/Button/PrimaryButton";
 import { HiMenuAlt3, HiX } from "react-icons/hi"; // Hamburger and close icons
 import { Link } from "react-router-dom";
-import TransparentButton from "../../components/ui/Button/TransparentButton";
-import SecondaryButton from "../../components/ui/Button/SecondaryButton";
 
 const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,12 +15,14 @@ const Nav = () => {
       {/* Top navigation */}
       <nav className="flex justify-between p-4 items-center bg-[#f1f5eb] z-50 relative">
         {/* Logo */}
-        <div className="flex gap-2 items-center">
-          <img src={logo} alt="logo" className="w-16 h-16 md:w-20" />
-          <h1 className="text-green-900 text-2xl md:text-4xl font-semibold">
-            Artisacs
-          </h1>
-        </div>
+        <a href="/ruhaan-malhotra/">
+          <div className="flex gap-2 items-center">
+            <img src={new_logo} alt="logo" className="w-16 h-16 md:w-20" />
+            <h1 className="text-green-900 text-2xl md:text-4xl font-semibold font-serif hidden lg:block">
+              Artisacs
+            </h1>
+          </div>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-3 md:gap-5 text-green-900 text-lg md:text-[18px]">
@@ -50,13 +50,6 @@ const Nav = () => {
           >
             Products
           </Link>
-
-          {/* <a
-            href="#contact"
-            className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
-          >
-            Contact
-          </a> */}
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -97,14 +90,13 @@ const Nav = () => {
             >
               Products
             </Link>
-            {/* <a
-              href="#contact"
-              className="py-2 hover:text-lime-500"
-              onClick={toggleMobileMenu}
+            <Link
+              to="/ruhaan-malhotra/ruhaan"
+              className="flex items-center text-lime-500 underline underline-offset-4 hover:text-lime-900"
             >
-              Contact
-            </a> */}
-            <div className="m-4">
+              Other Initiatives
+            </Link>
+            <div className=" m-4">
               <a href="#contact">
                 <PrimaryButton>Get in Touch</PrimaryButton>
               </a>
@@ -112,7 +104,6 @@ const Nav = () => {
           </div>
         )}
 
-        {/* "Get in Touch" button (Visible on Desktop only) */}
         <div className="hidden md:flex gap-4">
           <Link
             to="/ruhaan-malhotra/ruhaan"

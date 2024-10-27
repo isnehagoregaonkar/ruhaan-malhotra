@@ -6,6 +6,7 @@ import AboutRuhaan from "../../sections/About/AboutRuhaan";
 import AboutDiapair from "../../sections/About/AboutDiapair";
 import AboutCaptureDIA from "../../sections/About/AboutCaptureDIA";
 import ThankYouSection from "../../components/ui/ThankYouSection";
+import Articles from "../../sections/Articles/Articles";
 
 const Ruhaan = () => {
   return (
@@ -15,6 +16,7 @@ const Ruhaan = () => {
       <AboutRuhaan />
       <AboutDiapair />
       <AboutCaptureDIA />
+      <Articles />
       <ThankYouSection />
       <Footer />
     </div>

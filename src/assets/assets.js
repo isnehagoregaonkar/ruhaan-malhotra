@@ -2,6 +2,7 @@ import self1 from "../assets/ruhaan/self1.jpg";
 import ruhaan from "../assets/ruhaan/ruhaan.webp";
 import asset from "../assets/assets.png";
 import logo from "../assets/logo.png";
+import new_logo from "../assets/new_logo.png";
 import gallery1 from "../assets/gallery1.jpeg";
 import gallery2 from "../assets/gallery2.jpeg";
 import gallery3 from "../assets/gallery3.jpeg";
@@ -30,6 +31,7 @@ export {
   self1,
   asset,
   logo,
+  new_logo,
   gallery1,
   gallery2,
   gallery3,
