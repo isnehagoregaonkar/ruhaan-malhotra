@@ -15,7 +15,7 @@ const AboutDiapair = () => {
             <div className="space-y-2">
               <HeadingTitle
                 title="Diapair: Connecting Students and Alumni"
-                subtitle="Personalized Coaching"
+                subtitle="Student to Connect Platform"
               />
             </div>
 

@@ -33,10 +33,7 @@ const AboutRuhaan = () => {
           {/* Right Section with Content */}
           <div className="w-full lg:w-3/5 flex flex-col gap-4">
             {/* Title Section */}
-            <HeadingTitle
-              title="Ruhaan Malhotra"
-              subtitle="Meet Versatile Personality"
-            />
+            <HeadingTitle title="Ruhaan Malhotra" subtitle="Envisioned by" />
 
             {/* Text Content with proper spacing */}
             <div className="space-y-4">
