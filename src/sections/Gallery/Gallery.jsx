@@ -62,7 +62,7 @@ const ImageGallery = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="flex justify-center my-8">
-          <HeadingTitle subtitle="Gallery" title="Uncovering Hidden" />
+          <HeadingTitle subtitle="" title="Uncovering Hidden" />
         </div>
         <Masonry
           breakpointCols={breakpointColumnsObj}
