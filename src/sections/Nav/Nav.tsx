@@ -15,7 +15,7 @@ const Nav = () => {
       {/* Top navigation */}
       <nav className="flex justify-between p-4 items-center bg-[#f1f5eb] z-50 relative">
         {/* Logo */}
-        <a href="/ruhaan-malhotra/">
+        <a href="/">
           <div className="flex gap-2 items-center">
             <img src={new_logo} alt="logo" className="w-16 h-16 md:w-20" />
             <h1 className="text-green-900 text-2xl md:text-4xl font-semibold font-serif hidden lg:block">
@@ -27,25 +27,25 @@ const Nav = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-3 md:gap-5 text-green-900 text-lg md:text-[18px]">
           <Link
-            to="/ruhaan-malhotra/"
+            to="/"
             className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
           >
             Home
           </Link>
           <Link
-            to="/ruhaan-malhotra/about"
+            to="/about"
             className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
           >
             About
           </Link>
           <Link
-            to="/ruhaan-malhotra/gallery"
+            to="/gallery"
             className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
           >
             Gallery
           </Link>
           <Link
-            to="/ruhaan-malhotra/products"
+            to="/products"
             className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-lime-500 after:transition-transform after:duration-300 hover:text-lime-500 hover:after:scale-x-100"
           >
             Products
@@ -63,35 +63,35 @@ const Nav = () => {
         {isMobileMenuOpen && (
           <div className="absolute top-[70px] left-0 w-full bg-[#f1f5eb] flex flex-col items-center md:hidden text-green-900">
             <Link
-              to="/ruhaan-malhotra/"
+              to="/"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               Home
             </Link>
             <Link
-              to="/ruhaan-malhotra/about"
+              to="/about"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               About
             </Link>
             <Link
-              to="/ruhaan-malhotra/gallery"
+              to="/gallery"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               Gallery
             </Link>
             <Link
-              to="/ruhaan-malhotra/products"
+              to="/products"
               className="py-2 hover:text-lime-500"
               onClick={toggleMobileMenu}
             >
               Products
             </Link>
             <Link
-              to="/ruhaan-malhotra/ruhaan"
+              to="/ruhaan"
               className="flex items-center text-lime-500 underline underline-offset-4 hover:text-lime-900"
             >
               Other Initiatives
@@ -106,7 +106,7 @@ const Nav = () => {
 
         <div className="hidden md:flex gap-4">
           <Link
-            to="/ruhaan-malhotra/ruhaan"
+            to="/ruhaan"
             className="flex items-center text-lime-500 underline underline-offset-4 hover:text-lime-900"
           >
             Other Initiatives

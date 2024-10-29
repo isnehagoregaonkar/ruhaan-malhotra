@@ -15,7 +15,7 @@ const Modal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onClose();
-    navigate("/ruhaan-malhotra/success");
+    navigate("/success");
   };
 
   if (!isOpen) return null;

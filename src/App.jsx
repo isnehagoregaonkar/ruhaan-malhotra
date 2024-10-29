@@ -12,12 +12,12 @@ function App() {
     <div className="bg-[#f1f5eb]">
       <BrowserRouter>
         <Routes>
-          <Route path="/ruhaan-malhotra/" element={<Home />} />
-          <Route path="/ruhaan-malhotra/about" element={<AboutPage />} />
-          <Route path="/ruhaan-malhotra/products" element={<ProductPage />} />
-          <Route path="/ruhaan-malhotra/gallery" element={<GalleryPage />} />
-          <Route path="/ruhaan-malhotra/success" element={<SuccessPage />} />
-          <Route path="/ruhaan-malhotra/ruhaan" element={<Ruhaan />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/products" element={<ProductPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/ruhaan" element={<Ruhaan />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
