@@ -57,7 +57,12 @@ const AboutArtisac = () => {
             />
           </div>
           <div className="w-full lg:w-1/3 flex flex-col gap-6 text-white font-serif">
-            <h1 className="text-4xl md:text-6xl font-bold animate-fadeIn text-center lg:text-left ">
+            <h1
+              className="text-4xl md:text-6xl font-bold animate-fadeIn text-center lg:text-left"
+              style={{
+                fontFamily: "Pirata One",
+              }}
+            >
               Helping children Achieve their dreams
             </h1>
           </div>

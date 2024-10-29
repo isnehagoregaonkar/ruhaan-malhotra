@@ -17,7 +17,12 @@ const Top = () => {
             <h1 className="text-white text-xl md:text-2xl transition-all duration-300 ease-in-out">
               Waste to Wonder!
             </h1>
-            <h2 className="text-white text-4xl md:text-7xl font-semibold mt-4 capitalize animate-fadeIn transition-transform duration-700 ease-in-out">
+            <h2
+              className="text-white text-4xl md:text-7xl font-semibold mt-4 capitalize animate-fadeIn transition-transform duration-700 ease-in-out"
+              style={{
+                fontFamily: "Pirata One",
+              }}
+            >
               Achieving sustainability through design!
             </h2>
             <div className="flex flex-col md:flex-row gap-6 mt-8 md:mt-14 justify-center items-center md:justify-start">

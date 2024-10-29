@@ -18,7 +18,12 @@ const Nav = () => {
         <a href="/ruhaan-malhotra/">
           <div className="flex gap-2 items-center">
             <img src={new_logo} alt="logo" className="w-16 h-16 md:w-20" />
-            <h1 className="text-green-900 text-2xl md:text-4xl font-semibold font-serif hidden lg:block">
+            <h1
+              className="text-green-900 text-2xl md:text-4xl font-semibold font-serif hidden lg:block"
+              style={{
+                fontFamily: "Pirata One",
+              }}
+            >
               Artisacs
             </h1>
           </div>
