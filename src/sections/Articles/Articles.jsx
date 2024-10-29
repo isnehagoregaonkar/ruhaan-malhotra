@@ -30,7 +30,7 @@ const Articles = () => {
           subtitle={"They wrote about us"}
           title={"A Tapestry of Experiences"}
         />
-        <div className="flex flex-col md:flex-row gap-8 justify-around">
+        <div className="flex flex-col md:flex-row gap-8 justify-around my-8">
           {articles.map((article, index) => (
             <div
               key={index}
