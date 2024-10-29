@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import ScrollAnimation from "../../components/Animations/AnimationWrapper";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import { ContactCard } from "../../components/ui/Card/ContactCard";
@@ -17,29 +16,73 @@ const PrimaryButton = ({ children, sendEmail }) => {
 };
 
 const ContactSection = () => {
+  const [showEmailMessage, setShowEmailMessage] = useState({
+    showMessage: false,
+    message: "",
+    isError: false,
+  });
   const [emailData, setEmailData] = useState({
     name: "",
     email: "",
+    phoneno: "",
     message: "",
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEmailData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const validateEmail = (email) => {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(String(email).toLowerCase());
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // EmailJS service - replace with your own values
-    emailjs
-      .send("your_service_id", "your_template_id", emailData, "your_user_id")
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("Email sent successfully!");
-        },
-        (err) => {
-          console.error("FAILED...", err);
-          alert("Failed to send email. Please try again later.");
-        }
-      );
+    const { name, email, phoneno, message } = emailData;
+
+    // Validate email format
+    if (!validateEmail(email)) {
+      setShowEmailMessage({
+        showMessage: true,
+        message: "Please enter a valid email address.",
+        isError: true,
+      });
+      return;
+    }
+
+    // Send email using SMTP.js
+    window.Email.send({
+      Host: "smtp.gmail.com",
+      Username: "contact@artisacs.org",
+      Password: "Artisacs@2024",
+      To: "contact@artisacs.org",
+      From: email,
+      Subject: `Contact from ${name}`,
+      Body: `Name: ${name}\nPhone: ${phoneno}\nMessage: ${message}`,
+    })
+      .then((response) => {
+        setShowEmailMessage({
+          showMessage: true,
+          message: "Email sent successfully!",
+          isError: false,
+        });
+        setEmailData({ name: "", email: "", phoneno: "", message: "" });
+      })
+      .catch((error) => {
+        setShowEmailMessage({
+          showMessage: true,
+          message: "Email failed to send!",
+          isError: true,
+        });
+      });
   };
+
   return (
     <section
       className="mx-auto py-6 md:py-10 px-4 md:px-8 lg:px-16 text-center "
@@ -56,85 +99,69 @@ const ContactSection = () => {
 
         {/* Contact Cards Container */}
         <div className="flex flex-col md:flex-row mx-auto max-w-7xl p-4 md:p-8 justify-around gap-4 md:gap-8">
-          <ContactCard
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-white"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
-            }
-            title="Email"
-            content="artisac@gmail.com"
-          />
-          <ContactCard
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-white"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
-            }
-            title="Contact Number"
-            content="+971 55 876 4168"
-          />
-
-          <ContactCard
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-white"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            }
-            title="Address"
-            content="Dubai, UAE"
-          />
+          {/* ContactCard components go here */}
         </div>
 
         {/* Contact Form Container */}
         <div className="flex justify-center px-4 md:px-8 lg:px-16">
           <div className="w-full md:w-2/3 lg:w-1/2 border border-lime-500 p-4 md:p-8 rounded-2xl bg-white">
-            <form className="flex flex-col gap-3">
+            <form className="flex flex-col gap-3" onSubmit={sendEmail}>
               <input
                 type="text"
+                name="name"
                 placeholder="Full Name"
+                value={emailData.name}
+                onChange={handleChange}
                 aria-label="Full Name"
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-lime-500"
+                required
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
+                value={emailData.email}
+                onChange={handleChange}
                 aria-label="Email"
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-lime-500"
+                required
               />
               <input
                 type="tel"
+                name="phoneno"
                 placeholder="Phone Number"
+                value={emailData.phoneno}
+                onChange={handleChange}
                 aria-label="Phone Number"
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-lime-500"
+                required
               />
               <textarea
+                name="message"
                 rows={5}
                 placeholder="Message"
+                value={emailData.message}
+                onChange={handleChange}
                 aria-label="Message"
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-lime-500"
+                required
               />
-              <PrimaryButton sendEmail={sendEmail}>Send Message</PrimaryButton>
+              <PrimaryButton>Send Message</PrimaryButton>
+
+              {/* Message Div */}
+              {showEmailMessage.showMessage && (
+                <div
+                  className={`border p-4 rounded-2xl ${
+                    showEmailMessage.isError
+                      ? "border-red-500 bg-red-50"
+                      : "border-lime-500 bg-lime-50"
+                  }`}
+                >
+                  <p className="text-center text-lime-500">
+                    {showEmailMessage.message}
+                  </p>
+                </div>
+              )}
             </form>
           </div>
         </div>
