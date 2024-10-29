@@ -15,6 +15,7 @@ const HeaderBanner = ({ title, subtitle }) => {
           className="text-4xl md:text-6xl font-bold mb-4 font-serif"
           style={{
             fontFamily: "Pirata One",
+            letterSpacing: "2px",
           }}
         >
           {title}

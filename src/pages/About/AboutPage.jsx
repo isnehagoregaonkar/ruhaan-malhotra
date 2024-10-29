@@ -13,7 +13,7 @@ const AboutPage = () => {
     <div>
       <Nav />
       <HeaderBanner
-        title="Welcome to Artisac"
+        title="Welcome to Artisacs"
         subtitle=" Discover our eco-friendly designs and innovative solutions to
           sustainable living."
       />

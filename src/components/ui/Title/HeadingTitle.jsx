@@ -8,6 +8,7 @@ const HeadingTitle = ({ subtitle, title }) => {
         className="text-5xl font-bold text-green-900 font-serif"
         style={{
           fontFamily: "Pirata One",
+          letterSpacing: "3px",
         }}
       >
         {title}

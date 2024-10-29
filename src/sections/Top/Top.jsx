@@ -21,6 +21,7 @@ const Top = () => {
               className="text-white text-4xl md:text-7xl font-semibold mt-4 capitalize animate-fadeIn transition-transform duration-700 ease-in-out"
               style={{
                 fontFamily: "Pirata One",
+                letterSpacing: "3px",
               }}
             >
               Achieving sustainability through design!

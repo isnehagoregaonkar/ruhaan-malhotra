@@ -61,6 +61,7 @@ const AboutArtisac = () => {
               className="text-4xl md:text-6xl font-bold animate-fadeIn text-center lg:text-left"
               style={{
                 fontFamily: "Pirata One",
+                letterSpacing: "3px",
               }}
             >
               Helping children Achieve their dreams

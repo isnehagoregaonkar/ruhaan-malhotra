@@ -22,6 +22,7 @@ const Nav = () => {
               className="text-green-900 text-2xl md:text-4xl font-semibold font-serif hidden lg:block"
               style={{
                 fontFamily: "Pirata One",
+                letterSpacing: "3px",
               }}
             >
               Artisacs
