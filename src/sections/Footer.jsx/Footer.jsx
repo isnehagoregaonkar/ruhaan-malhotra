@@ -24,7 +24,7 @@ const Footer = () => {
               Instagram
             </a>
             <a
-              href="mailto:your-email@example.com"
+              href="mailto:contact@artisacs.com"
               className="hover:text-red-400 transition duration-200"
             >
               Email
