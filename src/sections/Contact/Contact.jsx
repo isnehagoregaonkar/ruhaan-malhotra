@@ -59,6 +59,7 @@ const ContactSection = () => {
     window.Email.send({
       Host: "smtp.hostinger.com",
       Username: "contact@artisacs.org",
+      Port: 587,
       Password: "Artisacs@2024",
       To: "contact@artisacs.org",
       From: email,
@@ -66,40 +67,43 @@ const ContactSection = () => {
       Body: `Name: ${name}\nPhone: ${phoneno}\nMessage: ${message}`,
     })
       .then((response) => {
-        setShowEmailMessage({
-          showMessage: true,
-          message: "Email sent successfully!",
-          isError: false,
-        });
-        setEmailData({ name: "", email: "", phoneno: "", message: "" });
-
-        // Hide message after 10 seconds
-        setTimeout(() => {
+        if (response === "OK") {
           setShowEmailMessage({
-            showMessage: false,
-            message: "",
+            showMessage: true,
+            message: "Email sent successfully!",
             isError: false,
           });
-        }, 10000);
+          setEmailData({ name: "", email: "", phoneno: "", message: "" });
+
+          setTimeout(() => {
+            setShowEmailMessage({
+              showMessage: false,
+              message: "",
+              isError: false,
+            });
+          }, 5000);
+
+          console.log("response", response);
+        } else {
+          throw new Error("SMTP.js error");
+        }
       })
       .catch((error) => {
         setShowEmailMessage({
           showMessage: true,
-          message: "Email failed to send!",
+          message: "Failed to send email. Please try again later.",
           isError: true,
         });
-
-        // Hide message after 10 seconds
+        console.log("error", error);
         setTimeout(() => {
           setShowEmailMessage({
             showMessage: false,
             message: "",
             isError: false,
           });
-        }, 10000);
+        }, 5000);
       });
   };
-
   return (
     <section
       className="mx-auto py-6 md:py-10 px-4 md:px-8 lg:px-16 text-center"
@@ -196,7 +200,13 @@ const ContactSection = () => {
                       : "border-lime-500 bg-lime-50"
                   }`}
                 >
-                  <p className="text-center text-lime-500">
+                  <p
+                    className={`text-center ${
+                      showEmailMessage.isError
+                        ? "text-red-500 bg-red-50"
+                        : "text-lime-500 bg-lime-50"
+                    }`}
+                  >
                     {showEmailMessage.message}
                   </p>
                 </div>
