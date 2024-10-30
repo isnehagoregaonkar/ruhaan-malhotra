@@ -57,10 +57,10 @@ const ContactSection = () => {
 
     // Send email using SMTP.js
     window.Email.send({
-      Host: "smtp.gmail.com",
+      Host: "smtp.hostinger.com",
       Username: "contact@artisacs.org",
       Password: "Artisacs@2024",
-      To: "recipient@example.com", // Change this to the actual recipient email
+      To: "contact@artisacs.org",
       From: email,
       Subject: `Contact from ${name}`,
       Body: `Name: ${name}\nPhone: ${phoneno}\nMessage: ${message}`,
