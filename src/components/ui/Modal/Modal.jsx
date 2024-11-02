@@ -3,6 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
 const Modal = ({ isOpen, onClose, product }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
@@ -13,7 +14,6 @@ const Modal = ({ isOpen, onClose, product }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -155,8 +155,9 @@ const Modal = ({ isOpen, onClose, product }) => {
             <button
               type="submit"
               className="px-4 py-2 bg-green-900 text-white rounded-lg hover:bg-lime-500"
+              disabled={isSubmitting}
             >
-              Confirm Order
+              {isSubmitting ? "Confirming Order..." : "Confirm Order"}
             </button>
           </div>
         </form>
