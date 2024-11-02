@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ScrollAnimation from "../../components/Animations/AnimationWrapper";
 import HeadingTitle from "../../components/ui/Title/HeadingTitle";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import emailjs from "emailjs-com";
 
-const PrimaryButton = ({ children }) => {
+const PrimaryButton = ({ children, disabled }) => {
   return (
     <button
       type="submit"
-      className="w-full md:w-auto px-6 py-3 bg-lime-500 text-white rounded-xl hover:bg-lime-600 transition-colors duration-200"
+      disabled={disabled}
+      className={`w-full md:w-auto px-6 py-3 ${
+        disabled ? "bg-gray-400" : "bg-lime-500 hover:bg-lime-600"
+      } text-white rounded-xl transition-colors duration-200`}
     >
       {children}
     </button>
@@ -15,6 +19,7 @@ const PrimaryButton = ({ children }) => {
 };
 
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showEmailMessage, setShowEmailMessage] = useState({
     showMessage: false,
     message: "",
@@ -40,70 +45,65 @@ const ContactSection = () => {
     return re.test(String(email).toLowerCase());
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const { name, email, phoneno, message } = emailData;
 
-    // Validate email format
+    // Basic email validation
     if (!validateEmail(email)) {
       setShowEmailMessage({
         showMessage: true,
         message: "Please enter a valid email address.",
         isError: true,
       });
+      setIsSubmitting(false);
       return;
     }
 
-    // Send email using SMTP.js
-    window.Email.send({
-      Host: "smtp.hostinger.com",
-      Username: "contact@artisacs.org",
-      Port: 587,
-      Password: "Artisacs@2024",
-      To: "contact@artisacs.org",
-      From: email,
-      Subject: `Contact from ${name}`,
-      Body: `Name: ${name}\nPhone: ${phoneno}\nMessage: ${message}`,
-    })
-      .then((response) => {
-        if (response === "OK") {
-          setShowEmailMessage({
-            showMessage: true,
-            message: "Email sent successfully!",
-            isError: false,
-          });
-          setEmailData({ name: "", email: "", phoneno: "", message: "" });
+    // Parameters for EmailJS template
+    const templateParams = {
+      user_name: name,
+      user_email: email,
+      user_phone: phoneno,
+      message: message,
+    };
 
-          setTimeout(() => {
-            setShowEmailMessage({
-              showMessage: false,
-              message: "",
-              isError: false,
-            });
-          }, 5000);
+    try {
+      // Use EmailJS to send the email
+      await emailjs.send(
+        "service_l7xdj9h", // Replace with your EmailJS service ID
+        "template_ovlkgj9", // Replace with your EmailJS template ID
+        templateParams,
+        "UF4keqVPV1OLwaYv-" // Replace with your EmailJS user ID
+      );
 
-          console.log("response", response);
-        } else {
-          throw new Error("SMTP.js error");
-        }
-      })
-      .catch((error) => {
-        setShowEmailMessage({
-          showMessage: true,
-          message: "Failed to send email. Please try again later.",
-          isError: true,
-        });
-        console.log("error", error);
-        setTimeout(() => {
-          setShowEmailMessage({
-            showMessage: false,
-            message: "",
-            isError: false,
-          });
-        }, 5000);
+      setShowEmailMessage({
+        showMessage: true,
+        message: "Email sent successfully!",
+        isError: false,
       });
+      setEmailData({ name: "", email: "", phoneno: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setShowEmailMessage({
+        showMessage: true,
+        message: "Failed to send email. Please try again later.",
+        isError: true,
+      });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setShowEmailMessage({
+          showMessage: false,
+          message: "",
+          isError: false,
+        });
+      }, 5000);
+    }
   };
+
   return (
     <section
       className="mx-auto py-6 md:py-10 px-4 md:px-8 lg:px-16 text-center"
@@ -121,15 +121,15 @@ const ContactSection = () => {
         {/* Contact Cards Container */}
         <div className="flex mx-28 p-8 justify-around gap-20">
           <div className="flex flex-col items-center mb-4 gap-2 justify-around border border-lime-500 rounded-2xl p-4 w-1/3 bg-white">
-            <span className=" bg-lime-500 rounded-full">
+            <span className="bg-lime-500 rounded-full">
               <FaEnvelope className="text-white text-[8px] p-4 h-14 w-14 hover:animate-shake" />
             </span>
             <p className="text-xl text-green-900 font-bold">Email</p>
-            <span className="text-sm text-green-900">contact@artisacs.com</span>
+            <span className="text-sm text-green-900">contact@artisacs.org</span>
           </div>
 
           <div className="flex flex-col items-center mb-4 gap-2 justify-around border border-lime-500 rounded-2xl p-4 w-1/3 bg-white">
-            <span className=" bg-lime-500 rounded-full">
+            <span className="bg-lime-500 rounded-full">
               <FaPhoneAlt className="text-white text-[8px] p-4 h-14 w-14 hover:animate-shake" />
             </span>
             <p className="text-xl text-green-900 font-bold">Contact Number</p>
@@ -189,7 +189,9 @@ const ContactSection = () => {
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-lime-500"
                 required
               />
-              <PrimaryButton>Send Message</PrimaryButton>
+              <PrimaryButton disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </PrimaryButton>
 
               {/* Message Div */}
               {showEmailMessage.showMessage && (
