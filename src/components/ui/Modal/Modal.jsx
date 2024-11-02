@@ -2,18 +2,82 @@ import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose, product }) => {
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
     email: "",
     address: "",
     quantity: "",
+    product: "",
   });
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const { name, email, contact, quantity, product } = formData;
+
+    // Basic email validation
+    if (!validateEmail(email)) {
+      setShowEmailMessage({
+        showMessage: true,
+        message: "Please enter a valid email address.",
+        isError: true,
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Parameters for EmailJS template
+    const templateParams = {
+      user_name: name,
+      user_email: email,
+      user_phone: contact,
+      message: "Product: " + product + "\nQuantity: " + quantity,
+    };
+
+    try {
+      // Use EmailJS to send the email
+      await emailjs.send(
+        "service_l7xdj9h", // Replace with your EmailJS service ID
+        "template_ecjqa88", // Replace with your EmailJS template ID
+        templateParams,
+        "UF4keqVPV1OLwaYv-" // Replace with your EmailJS user ID
+      );
+
+      setShowEmailMessage({
+        showMessage: true,
+        message: "Order placed successfully!",
+        isError: false,
+      });
+      setEmailData({
+        name: "",
+        contact: "",
+        email: "",
+        address: "",
+        quantity: "",
+        product: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setShowEmailMessage({
+        showMessage: true,
+        message: "Failed to send email. Please try again later.",
+        isError: true,
+      });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setShowEmailMessage({
+          showMessage: false,
+          message: "",
+          isError: false,
+        });
+      }, 5000);
+    }
     onClose();
     navigate("/success");
   };

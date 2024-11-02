@@ -63,26 +63,6 @@ const ProductPage = () => {
     setShowForm(true);
   };
 
-  // Handle form submit
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch("/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...formData, product: selectedProduct.name }),
-    });
-
-    if (response.ok) {
-      alert("Enquiry sent successfully!");
-      setShowForm(false);
-      setFormData({ name: "", email: "", address: "" });
-    } else {
-      alert("Failed to send enquiry.");
-    }
-  };
-
   return (
     <div>
       <Nav />
@@ -130,7 +110,11 @@ const ProductPage = () => {
 
       {/* Order Form Modal */}
       {showForm && (
-        <Modal isOpen={showForm} onClose={() => setShowForm(false)} />
+        <Modal
+          isOpen={showForm}
+          onClose={() => setShowForm(false)}
+          product={selectedProduct}
+        />
       )}
       <ContactSection />
       <Footer />
