@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 const Modal = ({ isOpen, onClose, product }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showEmailMessage, setShowEmailMessage] = useState({
+    showMessage: false,
+    message: "",
+    isError: false,
+  });
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
@@ -56,13 +62,6 @@ const Modal = ({ isOpen, onClose, product }) => {
         showMessage: true,
         message: "Order placed successfully!",
         isError: false,
-      });
-      setEmailData({
-        name: "",
-        contact: "",
-        email: "",
-        address: "",
-        quantity: "",
       });
     } catch (error) {
       console.error("Error sending email:", error);
@@ -147,6 +146,26 @@ const Modal = ({ isOpen, onClose, product }) => {
                 setFormData({ ...formData, address: e.target.value })
               }
             />
+            {/* Message Div */}
+            {showEmailMessage.showMessage && (
+              <div
+                className={`border p-4 rounded-2xl ${
+                  showEmailMessage.isError
+                    ? "border-red-500 bg-red-50"
+                    : "border-lime-500 bg-lime-50"
+                }`}
+              >
+                <p
+                  className={`text-center ${
+                    showEmailMessage.isError
+                      ? "text-red-500 bg-red-50"
+                      : "text-lime-500 bg-lime-50"
+                  }`}
+                >
+                  {showEmailMessage.message}
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="flex justify-end gap-4 mt-6">

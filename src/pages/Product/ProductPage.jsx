@@ -53,13 +53,14 @@ const products = [
 ];
 
 const ProductPage = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState();
 
   const [showForm, setShowForm] = useState(false);
 
   // Open form for selected product
   const handleOrderClick = (product) => {
-    setSelectedProduct(product);
+    console.log(product);
+    setSelectedProduct(product.name);
     setShowForm(true);
   };
 
