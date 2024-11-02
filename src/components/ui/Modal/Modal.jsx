@@ -9,7 +9,6 @@ const Modal = ({ isOpen, onClose, product }) => {
     email: "",
     address: "",
     quantity: "",
-    product: "",
   });
   const navigate = useNavigate();
 
@@ -18,7 +17,7 @@ const Modal = ({ isOpen, onClose, product }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const { name, email, contact, quantity, product } = formData;
+    const { name, email, contact, quantity } = formData;
 
     // Basic email validation
     if (!validateEmail(email)) {
@@ -59,7 +58,6 @@ const Modal = ({ isOpen, onClose, product }) => {
         email: "",
         address: "",
         quantity: "",
-        product: "",
       });
     } catch (error) {
       console.error("Error sending email:", error);
